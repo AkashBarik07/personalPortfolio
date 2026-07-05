@@ -174,7 +174,7 @@ const Hero = () => {
 
             <p className="text-white-100 text-lg mt-4">
               Currently, I'm a Software Engineer at{" "}
-              <span className="text-[#1877F2] font-medium">[Your Company]</span>
+              <span className="text-[#1877F2] font-medium">Microbase Infotech</span>
               ,
             </p>
 
