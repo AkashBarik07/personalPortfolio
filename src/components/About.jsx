@@ -1,5 +1,5 @@
 import React from "react";
-import {Tilt} from "react-tilt";
+import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -8,10 +8,10 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const ServiceCard = ({ index, title, icon }) => (
-    <Tilt className="xs:w-[250px] w-full">
+    <Tilt className="w-full">
         <motion.div
             variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-            className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
+            className="w-full green-pink-gradient p-[1px] rounded-2xl shadow-card"
         >
             <div
                 options={{
@@ -19,15 +19,11 @@ const ServiceCard = ({ index, title, icon }) => (
                     scale: 1,
                     speed: 450,
                 }}
-                className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
+                className="bg-tertiary rounded-2xl py-10 px-6 min-h-[260px] flex flex-col justify-center items-center gap-6"
             >
-                <img
-                    src={icon}
-                    alt="web-development"
-                    className="w-16 h-16 object-contain"
-                />
+                <img src={icon} alt={title} className="w-16 h-16 object-contain" />
 
-                <h3 className="text-white text-[20px] font-bold text-center">
+                <h3 className="text-white text-lg font-bold text-center leading-snug">
                     {title}
                 </h3>
             </div>
@@ -39,13 +35,17 @@ const About = () => {
     return (
         <>
             <motion.div variants={textVariant()}>
-                <p className={styles.sectionSubText}>Introduction</p>
-                <h2 className={styles.sectionHeadText}>Overview.</h2>
+                <p className="uppercase tracking-wide text-secondary text-sm">
+                    Introduction
+                </p>
+                <h2 className="text-white font-extrabold text-5xl sm:text-6xl mt-2">
+                    Overview.
+                </h2>
             </motion.div>
 
             <motion.p
                 variants={fadeIn("", "", 0.1, 1)}
-                className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+                className="mt-4 text-secondary text-[17px] max-w-2xl leading-[30px]"
             >
                 I'm a skilled software developer with experience in TypeScript and
                 JavaScript, and expertise in frameworks like React, Node.js, and
@@ -54,7 +54,7 @@ const About = () => {
                 real-world problems. Let's work together to bring your ideas to life!
             </motion.p>
 
-            <div className="mt-20 flex flex-wrap gap-10">
+            <div className="mt-16 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                 {services.map((service, index) => (
                     <ServiceCard key={service.title} index={index} {...service} />
                 ))}
